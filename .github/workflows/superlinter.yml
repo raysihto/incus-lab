@@ -5,9 +5,15 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   lint:
-    runs-on: [self-hosted, incus-lab]
+    runs-on: self-hosted
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
     steps:
       - uses: actions/checkout@v4
         with:
