@@ -1,0 +1,23 @@
+name: Test Testcontainers
+
+on:
+  push:
+    branches:
+      - test/docker-capabilities
+
+permissions: {}
+
+jobs:
+  testcontainers:
+    runs-on: self-hosted
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Run testcontainers test
+        working-directory: testcontainers-check
+        run: cargo test -- --nocapture

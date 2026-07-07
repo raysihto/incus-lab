@@ -1,0 +1,9 @@
+[package]
+name = "testcontainers-check"
+version = "0.1.0"
+edition = "2021"
+
+[dev-dependencies]
+testcontainers-modules = { version = "0.13.0", features = ["minio", "postgres"] }
+tokio = { version = "1", features = ["full"] }
+reqwest = "0.12"
