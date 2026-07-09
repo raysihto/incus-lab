@@ -1,0 +1,26 @@
+name: Long Job
+
+on:
+  push:
+    branches:
+      - test/long-job
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Sleep duration in minutes"
+        required: false
+        default: "10"
+
+permissions: {}
+
+jobs:
+  long-job:
+    runs-on: self-hosted
+    timeout-minutes: 30
+    steps:
+      - name: Sleep
+        run: |
+          MINUTES="${{ github.event.inputs.minutes || '10' }}"
+          echo "Sleeping for ${MINUTES} minute(s)..."
+          sleep "$((60 * MINUTES))"
+          echo "Done."
