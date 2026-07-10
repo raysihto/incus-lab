@@ -1,0 +1,14 @@
+name: Hello
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  hello:
+    runs-on: self-hosted
+    permissions: {}
+    steps:
+      - name: Hello
+        run: echo Hello
