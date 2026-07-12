@@ -1,0 +1,13 @@
+name: Hello Light
+on:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  hello:
+    runs-on: light
+    permissions: {}
+    steps:
+      - name: Hello
+        run: |
+          echo "Hello from light ($(nproc) cpus)"
+          sleep 20
