@@ -1,0 +1,13 @@
+name: Hello Heavy
+on:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  hello:
+    runs-on: heavy
+    permissions: {}
+    steps:
+      - name: Hello
+        run: |
+          echo "Hello from heavy ($(nproc) cpus)"
+          sleep 60
